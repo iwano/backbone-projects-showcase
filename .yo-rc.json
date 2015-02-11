@@ -1,0 +1,12 @@
+{
+  "generator-backbone": {
+    "appPath": "app",
+    "appName": "ProjectsShowcase",
+    "coffee": false,
+    "testFramework": "jasmine",
+    "templateFramework": "handlebars",
+    "compassBootstrap": false,
+    "includeRequireJS": false
+  },
+  "generator-jasmine": {}
+}
