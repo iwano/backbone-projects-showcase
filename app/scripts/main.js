@@ -8,7 +8,8 @@ window.ProjectsShowcase = {
     Routers: {},
     init: function () {
         'use strict';
-        console.log('Hello from Backbone!');
+        var Projects = new ProjectsShowcase.Collections.Project();
+        Projects.reset(ProjectsFixtures);
     }
 };
 
