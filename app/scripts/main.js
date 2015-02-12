@@ -6,9 +6,10 @@ window.ProjectsShowcase = {
     Collections: {},
     Views: {},
     Routers: {},
+    dispatcher: _.clone(Backbone.Events),
     init: function () {
         'use strict';
-        new ProjectsShowcase.Routers.Projects();
+        ProjectsShowcase.projectsRouter = new ProjectsShowcase.Routers.ProjectsRouter();
         Backbone.history.start();
     }
 };
