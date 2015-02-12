@@ -8,8 +8,10 @@ window.ProjectsShowcase = {
     Routers: {},
     init: function () {
         'use strict';
-        var Projects = new ProjectsShowcase.Collections.Project();
-        Projects.reset(ProjectsFixtures);
+        var Projects = new ProjectsShowcase.Collections.Project(ProjectsFixtures);
+        new ProjectsShowcase.Views.Projects({
+          collection: Projects
+        });
     }
 };
 
