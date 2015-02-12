@@ -30,7 +30,7 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
 
     showDetails: function(e) {
       e.preventDefault();
-      ProjectsShowcase.projectsRouter.navigate('/projects/' + this.model.get('id'), {trigger: true});
+      ProjectsShowcase.projectsRouter.navigate('projects/' + this.model.get('id'), { trigger: true });
     }
 
   });

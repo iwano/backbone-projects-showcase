@@ -16,23 +16,21 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
     className: '',
 
     events: {
-      "click a": "close"
+      "click a[js-go-back]": "goBack"
     },
 
     initialize: function () {
-      this.listenTo(ProjectsShowcase.dispatcher, 'cleanProjectDetails', this.close);
       this.listenTo(this.model, 'change', this.render);
       this.render();
     },
 
-    render: function () {
-      this.$el.html(this.template(this.model.toJSON()));
+    goBack: function(e) {
+      e.preventDefault();
+      ProjectsShowcase.projectsRouter.navigate('projects', { trigger: true });
     },
 
-    close: function () {
-      this.stopListening();
-      this.undelegateEvents();
-      this.$el.html('');
+    render: function () {
+      this.$el.html(this.template(this.model.toJSON()));
     }
 
   });

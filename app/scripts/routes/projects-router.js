@@ -18,23 +18,26 @@ ProjectsShowcase.Routers = ProjectsShowcase.Routers || {};
     },
 
     showProjectsList: function() {
+      this.cleanViews();
       var ProjectsListView = new ProjectsShowcase.Views.Projects({
         collection: ProjectsShowcase.projects
       });
     },
 
     showProjectsDetails: function(projectId) {
-      if (ProjectsShowcase.currentProject) {
-        this.cleanProjectDetails();
-      }
-      ProjectsShowcase.currentProject = ProjectsShowcase.projects.findWhere({ id: +projectId });
-      new ProjectsShowcase.Views.ProjectDetails({
-        model: ProjectsShowcase.currentProject
+      this.cleanViews();
+      var project = ProjectsShowcase.projects.findWhere({ id: +projectId });
+
+      ProjectsShowcase.currentProject = new ProjectsShowcase.Views.ProjectDetails({
+        model: project
       });
     },
 
-    cleanProjectDetails: function() {
-      ProjectsShowcase.dispatcher.trigger('cleanProjectDetails');
+    cleanViews: function() {
+      if (ProjectsShowcase.currentProject) {
+        ProjectsShowcase.currentProject.close();
+        delete ProjectsShowcase.currentProject;
+      }
     }
 
   });
