@@ -23,16 +23,14 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
 
     render: function () {
       this.$el.html(this.template);
-      this.renderCollection();
+      this.addAll();
     },
 
-    renderCollection: function() {
-      this.collection.each(function(project){
-        this.renderProject(project);
-      }, this);
+    addAll: function() {
+      this.collection.each(this.addOne, this);
     },
 
-    renderProject: function(project) {
+    addOne: function(project) {
       var project = new ProjectsShowcase.Views.Project({
         model: project
       });
