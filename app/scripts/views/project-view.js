@@ -7,7 +7,7 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
 
   ProjectsShowcase.Views.Project = Backbone.View.extend({
 
-    template: JST['app/scripts/templates/project.hbs'],
+    template: JST['app/scripts/templates/project-template.hbs'],
 
     tagName: 'li',
 
