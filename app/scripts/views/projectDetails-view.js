@@ -16,10 +16,14 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
     className: '',
 
     events: {
-      "click a[js-go-back]": "goBack"
+      "click a[js-go-back]":          "goBack",
+      "click a[js-previous-project]": "showPreviousProject",
+      "click a[js-next-project]":     "showNextProject"
     },
 
-    initialize: function () {
+    initialize: function (options) {
+      this.previous = options.previous;
+      this.next = options.next;
       this.listenTo(this.model, 'change', this.render);
       this.render();
     },
@@ -27,6 +31,20 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
     goBack: function(e) {
       e.preventDefault();
       ProjectsShowcase.projectsRouter.navigate('projects', { trigger: true });
+    },
+
+    showPreviousProject: function(e) {
+      e.preventDefault();
+      this.showProject(this.previous);
+    },
+
+    showNextProject: function(e) {
+      e.preventDefault();
+      this.showProject(this.next);
+    },
+
+    showProject: function(project) {
+      ProjectsShowcase.projectsRouter.navigate('projects/' + project, { trigger: true });
     },
 
     render: function () {

@@ -19,17 +19,21 @@ ProjectsShowcase.Routers = ProjectsShowcase.Routers || {};
 
     showProjectsList: function() {
       this.cleanViews();
-      var ProjectsListView = new ProjectsShowcase.Views.Projects({
+      new ProjectsShowcase.Views.Projects({
         collection: ProjectsShowcase.projects
       });
     },
 
     showProjectsDetails: function(projectId) {
       this.cleanViews();
-      var project = ProjectsShowcase.projects.findWhere({ id: +projectId });
+      var project =  ProjectsShowcase.projects.findWhere({ id: +projectId }),
+          previous = ProjectsShowcase.projects.at(ProjectsShowcase.projects.indexOf(project) - 1),
+          next =     ProjectsShowcase.projects.at(ProjectsShowcase.projects.indexOf(project) + 1);
 
       ProjectsShowcase.currentProject = new ProjectsShowcase.Views.ProjectDetails({
-        model: project
+        model:    project,
+        previous: (previous && previous.get('id')),
+        next:     (next && next.get('id'))
       });
     },
 
