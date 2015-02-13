@@ -198,22 +198,39 @@ module.exports = function (grunt) {
         },
         copy: {
             dist: {
-                files: [{
-                    expand: true,
-                    dot: true,
-                    cwd: '<%= yeoman.app %>',
-                    dest: '<%= yeoman.dist %>',
-                    src: [
-                        '*.{ico,txt}',
-                        'images/{,*/}*.{webp,gif}',
-                        'styles/fonts/{,*/}*.*',
-                    ]
-                }, {
-                    src: 'node_modules/apache-server-configs/dist/.htaccess',
-                    dest: '<%= yeoman.dist %>/.htaccess'
-                }]
+                files: [
+                    {
+                      expand: true,
+                      dot: true,
+                      cwd: '<%= yeoman.app %>',
+                      dest: '<%= yeoman.dist %>',
+                      src: [
+                          '*.{ico,txt}',
+                          'images/{,*/}*.{webp,gif}',
+                          'styles/fonts/{,*/}*.*',
+                      ]
+                    },
+                    {
+                        src: 'node_modules/apache-server-configs/dist/.htaccess',
+                        dest: '<%= yeoman.dist %>/.htaccess'
+                    },
+                    {
+                        expand: true,
+                        dest: '<%= yeoman.dist %>',
+                        cwd: 'heroku',
+                        src: '*',
+                        rename: function (dest, src) {
+                            var path = require('path');
+                            if (src === 'distpackage.json') {
+                              return path.join(dest, 'package.json');
+                          }
+                            return path.join(dest, src);
+                        }
+                    }
+                ]
             }
         },
+
         handlebars: {
             compile: {
                 options: {
