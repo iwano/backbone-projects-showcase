@@ -9,7 +9,7 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
 
     template: JST['app/scripts/templates/project-template.hbs'],
 
-    tagName: 'li',
+    tagName: 'tr',
 
     id: '',
 

@@ -29,14 +29,18 @@ ProjectsShowcase.Routers = ProjectsShowcase.Routers || {};
     showProjectsList: function(params) {
       this.cleanViews();
       var collection,
-          projects;
+          projects,
+          params = params || {};
       if (params.filter && params.filter != 'all') {
         var active = params.filter == 'active';
         projects =   ProjectsShowcase.projects.where({ active: active });
         collection = new ProjectsShowcase.Collections.Project(projects);
       }
       ProjectsShowcase.projectsView = new ProjectsShowcase.Views.Projects({
-        collection: (collection || ProjectsShowcase.projects)
+        collection: (collection    || ProjectsShowcase.projects),
+        orderBy:    (params.sort   || 'id'),
+        order:      (params.order  || 'ASC'),
+        filterBy:   (params.filter || 'all')
       });
     },
 

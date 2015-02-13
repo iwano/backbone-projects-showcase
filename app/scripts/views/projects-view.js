@@ -19,16 +19,23 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
       "click a[js-filter-all]":      "showAll",
       "click a[js-filter-active]":   "showActive",
       "click a[js-filter-inactive]": "showInactive",
-      "click a[js-project-new]":     "newProject"
+      "click a[js-project-new]":     "newProject",
+      "click th[js-sort]":           "sortProjects"
     },
 
-    initialize: function(){
+    initialize: function(options){
       this.collection.on('sort', this.render, this);
-      this.views = [];
-      this.render();
+      this.views              = [];
+      this.filterBy           = options.filterBy;
+      this.order              = options.order;
+      this.orderBy            = options.orderBy;
+      this.collection.orderBy = this.orderBy;
+      this.collection.order   = this.order;
+      this.collection.sort();
     },
 
     render: function () {
+      console.log([this.orderBy, this.filterBy, this.order]);
       $("#main-content").html(
         this.$el.html(this.template)
       );
@@ -44,7 +51,7 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
         model: project
       });
       this.views.push(view);
-      $('#projects-list').append(view.render().el);
+      $('tbody').append(view.render().el);
     },
 
     removeAll: function() {
@@ -71,7 +78,18 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
     },
 
     filterProjects: function(filterBy) {
-      ProjectsShowcase.projectsRouter.navigate('projects?filter=' + filterBy, { trigger: true });
+      ProjectsShowcase.projectsRouter.navigate('projects?filter=' + filterBy + '&sort=' + this.orderBy + '&order=' + this.order, { trigger: true });
+    },
+
+    sortProjects: function(e) {
+      e.preventDefault();
+      var orderBy = $(e.currentTarget).data('sort');
+      if (orderBy === this.orderBy) {
+        this.order = this.order === 'ASC' ? 'DESC' : 'ASC';
+      } else {
+        this.orderBy = orderBy;
+      }
+      ProjectsShowcase.projectsRouter.navigate('projects?filter=' + this.filterBy + '&sort=' + this.orderBy + '&order=' + this.order, { trigger: true });
     },
 
     newProject: function(e) {
