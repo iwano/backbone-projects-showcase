@@ -98,6 +98,7 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
     },
 
     onClose: function() {
+      this.collection.off();
       this.removeAll();
     }
 
