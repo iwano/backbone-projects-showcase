@@ -46,7 +46,8 @@ ProjectsShowcase.Routers = ProjectsShowcase.Routers || {};
 
     showProjectsDetails: function(projectId) {
       this.cleanViews();
-      var project =  ProjectsShowcase.projects.findWhere({ id: +projectId }),
+      var id = isNaN(projectId) ? projectId : +projectId,
+          project =  ProjectsShowcase.projects.findWhere({ id: id }),
           previous = ProjectsShowcase.projects.at(ProjectsShowcase.projects.indexOf(project) - 1),
           next =     ProjectsShowcase.projects.at(ProjectsShowcase.projects.indexOf(project) + 1);
 

@@ -1,10 +1,33 @@
 <a js-previous-project href="#">Previous Project</a>
+<div class="project-details">
+	{{name}}
+	{{description}}
+	{{owner.name}}
+	{{owner.image}}
+	{{start_date}}
+	{{end_date}}
+	{{total_steps}}
+	{{current_step}}
+	{{active}}
+</div>
 
-{{name}}
-{{description}}
-{{owner.name}}
-{{start_date}}
-{{end_date}}
+
+
+<form name="project_form" class="project-editing">
+	<input type="text" name="name" value="{{name}}"/>
+	<textarea name="description">{{description}}</textarea>
+	<input type="text" name="owner_name" value="{{owner.name}}"/>
+	<input type="text" name="owner_image" value="{{owner.image}}"/>
+	<input type="text" name="start_date" value="{{start_date}}"/>
+	<input type="text" name="end_date" value="{{end_date}}"/>
+	<input type="number" name="total_steps" value="{{total_steps}}"/>
+	<input type="number" name="current_step" value="{{current_step}}"/>
+	<input type="checkbox" name="active" value="{{active}}"/>
+	<button js-project-save type="submit">Save</button>
+	<button js-project-cancel type="submit">Cancel</button>
+</form>
+
+<button js-project-edit type="submit">Edit</button>
 
 <a js-go-back href="#">Go Back</a>
 
