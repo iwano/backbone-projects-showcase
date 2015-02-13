@@ -57,20 +57,21 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
 
     showAll: function(e) {
       e.preventDefault();
-      this.collection.orderBy = 'all';
-      this.collection.sort();
+      this.filterProjects('all');
     },
 
     showActive: function(e) {
       e.preventDefault();
-      this.collection.orderBy = 'active';
-      this.collection.sort();
+      this.filterProjects('active');
     },
 
     showInactive: function(e) {
       e.preventDefault();
-      this.collection.orderBy = 'inactive';
-      this.collection.sort();
+      this.filterProjects('inactive');
+    },
+
+    filterProjects: function(filterBy) {
+      ProjectsShowcase.projectsRouter.navigate('projects?filter=' + filterBy, { trigger: true });
     },
 
     newProject: function(e) {
