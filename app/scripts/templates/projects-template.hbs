@@ -1,8 +1,16 @@
 <h1>Projects List</h1>
 
+<header>
+	<ul>
+		<li><a href="#" js-filter-all>View All</a></li>
+		<li><a href="#" js-filter-active>Active</a></li>
+		<li><a href="#" js-filter-inactive>Inactive</a></li>
+	</ul>
+</header>
+
 {{#each projects}}
-  <h3>By {{name}}</h3>
-  <div class="body">{{description}}</div>
+<h3>By {{name}}</h3>
+<div class="body">{{description}}</div>
 {{/each}}
 
 <ul></ul>

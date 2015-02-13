@@ -3,12 +3,25 @@
 ProjectsShowcase.Collections = ProjectsShowcase.Collections || {};
 
 (function () {
-    'use strict';
+  'use strict';
 
-    ProjectsShowcase.Collections.Project = Backbone.Collection.extend({
+  ProjectsShowcase.Collections.Project = Backbone.Collection.extend({
 
-        model: ProjectsShowcase.Models.Project
+    initialize: function() {
+      this.orderBy = 'all';
+    },
 
-    });
+    comparator: function(m) {
+      if(this.orderBy == 'active') {
+        return m.get('active');
+      } else if(this.orderBy == 'inactive') {
+        return -m.get('active');
+      }
+      return m.get('id');
+    },
+
+    model: ProjectsShowcase.Models.Project
+
+  });
 
 })();
