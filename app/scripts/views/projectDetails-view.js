@@ -48,7 +48,7 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
     },
 
     render: function () {
-      $("#main-content").append(
+      $("#main-content").html(
         this.$el.html(this.template(this.model.toJSON()))
       );
     }

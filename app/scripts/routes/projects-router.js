@@ -10,11 +10,20 @@ ProjectsShowcase.Routers = ProjectsShowcase.Routers || {};
     routes: {
       "":             "showProjectsList",
       "projects":     "showProjectsList",
+      "projects/new": "showProjectsNew",
       "projects/:id": "showProjectsDetails"
     },
 
     initialize: function() {
-      ProjectsShowcase.projects = new ProjectsShowcase.Collections.Project(ProjectsFixtures);
+      ProjectsShowcase.projects = new ProjectsShowcase.Collections.Project();
+      ProjectsShowcase.projects.fetch().then(function() {
+        if (ProjectsShowcase.projects.length === 0) {
+          ProjectsShowcase.projects.reset(ProjectsFixtures);
+          ProjectsShowcase.projects.each(function(model) {
+            model.save();
+          });
+        }
+      });
     },
 
     showProjectsList: function() {
@@ -34,6 +43,15 @@ ProjectsShowcase.Routers = ProjectsShowcase.Routers || {};
         model:    project,
         previous: (previous && previous.get('id')),
         next:     (next && next.get('id'))
+      });
+    },
+
+    showProjectsNew: function() {
+      this.cleanViews();
+      var project =  ProjectsShowcase.projects.create();
+
+      ProjectsShowcase.currentProjectView = new ProjectsShowcase.Views.ProjectDetails({
+        model: project
       });
     },
 

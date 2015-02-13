@@ -11,6 +11,8 @@ ProjectsShowcase.Collections = ProjectsShowcase.Collections || {};
       this.orderBy = 'all';
     },
 
+    localStorage: new Backbone.LocalStorage("projects"),
+
     comparator: function(m) {
       if(this.orderBy == 'active') {
         return m.get('active');

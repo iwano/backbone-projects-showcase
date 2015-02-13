@@ -11,14 +11,15 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
 
     tagName: 'section',
 
-    id: 'projects-list',
+    id: 'projects-container',
 
     className: '',
 
     events: {
       "click a[js-filter-all]":      "showAll",
       "click a[js-filter-active]":   "showActive",
-      "click a[js-filter-inactive]": "showInactive"
+      "click a[js-filter-inactive]": "showInactive",
+      "click a[js-project-new]":     "newProject"
     },
 
     initialize: function(){
@@ -28,8 +29,7 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
     },
 
     render: function () {
-      debugger;
-      $("#main-content").append(
+      $("#main-content").html(
         this.$el.html(this.template)
       );
       this.addAll();
@@ -44,7 +44,7 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
         model: project
       });
       this.views.push(view);
-      $('ul').append(view.render().el);
+      $('#projects-list').append(view.render().el);
     },
 
     removeAll: function() {
@@ -71,6 +71,11 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
       e.preventDefault();
       this.collection.orderBy = 'inactive';
       this.collection.sort();
+    },
+
+    newProject: function(e) {
+      e.preventDefault();
+      ProjectsShowcase.projectsRouter.navigate('projects/new', { trigger: true });
     },
 
     onClose: function() {

@@ -7,8 +7,6 @@ ProjectsShowcase.Models = ProjectsShowcase.Models || {};
 
     ProjectsShowcase.Models.Project = Backbone.Model.extend({
 
-        url: '',
-
         initialize: function() {
         },
 
