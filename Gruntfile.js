@@ -130,6 +130,7 @@ module.exports = function (grunt) {
                         '<%= yeoman.app %>/bower_components/jquery/dist/jquery.js',
                         '<%= yeoman.app %>/bower_components/lodash/dist/lodash.js',
                         '<%= yeoman.app %>/bower_components/backbone/backbone.js',
+                        '<%= yeoman.app %>/bower_components/handlebars/handlebars.js',
                         '.tmp/scripts/templates.js'
                     ]
                 }
