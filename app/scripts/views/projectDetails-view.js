@@ -9,9 +9,9 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
 
     template: JST['app/scripts/templates/projectDetails-template.hbs'],
 
-    el: 'body',
+    tagName: 'section',
 
-    id: '',
+    id: 'project-details',
 
     className: '',
 
@@ -48,7 +48,9 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
     },
 
     render: function () {
-      this.$el.html(this.template(this.model.toJSON()));
+      $("#main-content").append(
+        this.$el.html(this.template(this.model.toJSON()))
+      );
     }
 
   });

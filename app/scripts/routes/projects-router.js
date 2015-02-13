@@ -19,7 +19,7 @@ ProjectsShowcase.Routers = ProjectsShowcase.Routers || {};
 
     showProjectsList: function() {
       this.cleanViews();
-      new ProjectsShowcase.Views.Projects({
+      ProjectsShowcase.projectsView = new ProjectsShowcase.Views.Projects({
         collection: ProjectsShowcase.projects
       });
     },
@@ -30,7 +30,7 @@ ProjectsShowcase.Routers = ProjectsShowcase.Routers || {};
           previous = ProjectsShowcase.projects.at(ProjectsShowcase.projects.indexOf(project) - 1),
           next =     ProjectsShowcase.projects.at(ProjectsShowcase.projects.indexOf(project) + 1);
 
-      ProjectsShowcase.currentProject = new ProjectsShowcase.Views.ProjectDetails({
+      ProjectsShowcase.currentProjectView = new ProjectsShowcase.Views.ProjectDetails({
         model:    project,
         previous: (previous && previous.get('id')),
         next:     (next && next.get('id'))
@@ -38,9 +38,11 @@ ProjectsShowcase.Routers = ProjectsShowcase.Routers || {};
     },
 
     cleanViews: function() {
-      if (ProjectsShowcase.currentProject) {
-        ProjectsShowcase.currentProject.close();
-        delete ProjectsShowcase.currentProject;
+      if (ProjectsShowcase.projectsView) {
+        ProjectsShowcase.projectsView.close();
+      }
+      if (ProjectsShowcase.currentProjectView) {
+        ProjectsShowcase.currentProjectView.close();
       }
     }
 

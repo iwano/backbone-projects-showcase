@@ -9,9 +9,9 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
 
     template: JST['app/scripts/templates/projects-template.hbs'],
 
-    el: 'body',
+    tagName: 'section',
 
-    id: '',
+    id: 'projects-list',
 
     className: '',
 
@@ -28,7 +28,10 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
     },
 
     render: function () {
-      this.$el.html(this.template);
+      debugger;
+      $("#main-content").append(
+        this.$el.html(this.template)
+      );
       this.addAll();
     },
 
@@ -68,6 +71,10 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
       e.preventDefault();
       this.collection.orderBy = 'inactive';
       this.collection.sort();
+    },
+
+    onClose: function() {
+      this.removeAll();
     }
 
 
