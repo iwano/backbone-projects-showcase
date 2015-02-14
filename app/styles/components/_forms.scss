@@ -1,0 +1,25 @@
+.label-block, .input-block {
+  display: block;
+}
+
+.label-block {
+  float: left;
+  padding: 10px 0;
+
+  & + .label-block {
+    margin-left: 20%;
+  }
+
+  &--fullwidth, &--fullwidth .input-block {
+    width: 100%;
+  }
+
+  &--fullwidth .input-block {
+    box-sizing: border-box;
+  }
+}
+
+.label-group {
+  clear: both;
+  overflow: hidden;
+}

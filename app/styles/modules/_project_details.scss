@@ -1,14 +1,14 @@
 .project-details {
-  &__form {
+  .edit-show {
     display: none;
   }
 
   &--editing {
-    .project-details__form {
+    .edit-show {
       display: block;
     }
 
-    .project-details__info {
+    .edit-hide {
       display: none;
     }
   }

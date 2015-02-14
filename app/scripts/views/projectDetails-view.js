@@ -52,8 +52,8 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
     },
 
     save: function(e) {
-      e.preventDefault();
-      var values = this.form.serializeArray();
+      var values = this.form.serializeArray(),
+          self   = this;
       this.model.save({
         name:         values[0].value,
         description:  values[1].value,
@@ -66,7 +66,9 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
         current_step: values[7].value,
         active:       (values[8] ? true : false)
       }, {success:function(model) {
+        e.preventDefault();
         ProjectsShowcase.projects.add(model);
+        self.closeForm();
       } });
     },
 

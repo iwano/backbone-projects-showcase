@@ -8,7 +8,7 @@
 </header>
 
 
-<div class="project-details__info">
+<div class="project-details__info edit-hide">
 	<section class="project-details__description">
 		<h2 js-collapsible>Project Details</h2>
 		<div class="collapsible-content">
@@ -37,22 +37,69 @@
 </div>
 
 
-<form name="project_form" class="project-details__form">
-	<input type="text" name="name" value="{{model.name}}"/>
-	<textarea name="description">{{model.description}}</textarea>
-	<input type="text" name="owner_name" value="{{model.owner.name}}"/>
-	<input type="text" name="owner_image" value="{{model.owner.image}}"/>
-	<input type="text" name="start_date" value="{{model.start_date}}"/>
-	<input type="text" name="end_date" value="{{model.end_date}}"/>
-	<input type="number" name="total_steps" value="{{model.total_steps}}"/>
-	<input type="number" name="current_step" value="{{model.current_step}}"/>
-	<input type="checkbox" name="active" {{isActive model.active}}/>
+<form name="project_form" class="project-details__form edit-show">
+
+	<div class="label-group">
+		<label class="label-block">
+			Name:
+			<input type="text" name="name" class="input-block" required="true" value="{{model.name}}"/>
+		</label>
+
+		<label class="label-block">
+			Is active?:
+			<input type="checkbox" name="active" class="input-block" {{isActive model.active}}/>
+		</label>
+	</div>
+
+	<div class="label-group">
+		<label class="label-block label-block--fullwidth">
+			Description:
+			<textarea name="description" class="input-block" rows="5" required="true">{{model.description}}</textarea>
+		</label>
+	</div>
+
+	<div class="label-group">
+		<label class="label-block">
+			Owner name:
+			<input type="text" name="owner_name" class="input-block" required="true" value="{{model.owner.name}}"/>
+		</label>
+
+		<label class="label-block">
+			Owner image:
+			<input type="text" name="owner_image" class="input-block" value="{{model.owner.image}}"/>
+		</label>
+	</div>
+
+	<div class="label-group">
+		<label class="label-block">
+			Start date:
+			<input type="text" name="start_date" class="input-block" value="{{model.start_date}}"/>
+		</label>
+
+		<label class="label-block">
+			End date:
+			<input type="text" name="end_date" class="input-block" value="{{model.end_date}}"/>
+		</label>
+	</div>
+
+	<div class="label-group">
+		<label class="label-block">
+			Total steps:
+			<input type="number" name="total_steps" class="input-block" value="{{model.total_steps}}"/>
+		</label>
+
+		<label class="label-block">
+			Current step:
+			<input type="number" name="current_step" class="input-block" value="{{model.current_step}}"/>
+		</label>
+	</div>
+
 	<button js-project-save type="submit">Save</button>
 	<button js-project-cancel>Cancel</button>
 </form>
 
 
-<button js-project-edit type="submit">Edit</button>
+<button js-project-edit type="submit" class="edit-hide">Edit</button>
 
 <a js-go-back href="#">Go Back</a>
 
