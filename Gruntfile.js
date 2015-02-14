@@ -130,6 +130,8 @@ module.exports = function (grunt) {
                 sassDir: '<%= yeoman.app %>/styles',
                 cssDir: '.tmp/styles',
                 imagesDir: '<%= yeoman.app %>/images',
+                fontsDir: '<%= yeoman.app %>/styles/fonts',
+                httpFontsPath: '/fonts',
                 httpImagesPath: '/images',
                 relativeAssets: false,
                 assetCacheBuster: false
@@ -258,7 +260,7 @@ module.exports = function (grunt) {
                       src: [
                           '*.{ico,txt}',
                           'images/{,*/}*.{webp,gif}',
-                          'styles/fonts/{,*/}*.*',
+                          'fonts/{,*/}*.*',
                       ]
                     },
                     {

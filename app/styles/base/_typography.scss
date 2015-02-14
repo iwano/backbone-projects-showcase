@@ -1,9 +1,21 @@
+@font-face {
+  font-family: 'montserratregular';
+  src: font-url('montserrat/montserrat-regular-webfont.eot');
+  src: font-url('montserrat/montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  font-url('montserrat/montserrat-regular-webfont.woff') format('woff'),
+  font-url('montserrat/montserrat-regular-webfont.ttf') format('truetype'),
+  font-url('montserrat/montserrat-regular-webfont.svg#montserratregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 body {
   color: $header-color;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'montserratregular', sans-serif;
+  font-weight: 100;
 }
 
 h1, h2, h3 {
   font-weight: 100;
 }
-
