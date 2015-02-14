@@ -1,3 +1,21 @@
 body {
   background: $background-primary;
 }
+
+#main-content {
+  margin: 5% 0;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:active, &:visited {
+    color: $link-color;
+  }
+
+  &:hover {
+    color: $link-color-hover;
+    text-decoration: underline;
+  }
+}

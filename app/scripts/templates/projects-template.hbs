@@ -1,13 +1,13 @@
-<h1>Projects List</h1>
 
-<header>
-	<ul>
+<header class="card__header">
+	<h1 class="card__title card__title--small">Projects Index</h1>
+	<ul class="card-controls card-controls--center">
 		<li><a href="#" js-filter-all>View All</a></li>
 		<li><a href="#" js-filter-active>Active</a></li>
 		<li><a href="#" js-filter-inactive>Inactive</a></li>
 	</ul>
 
-	<ul>
+	<ul class="card-controls card-controls--right">
 		<li><a href="#" js-project-new>New Project</a></li>
 	</ul>
 </header>
@@ -17,15 +17,15 @@
 <div class="body">{{description}}</div>
 {{/each}}
 
-<table id="projects-list">
-	<thead>
+<table class="table table--full-width" id="projects-list">
+	<thead class="table__header">
 		<th js-sort data-sort="name">Project Name</th>
-		<th js-sort data-sort="owner">Owner</th>
-		<th js-sort data-sort="end_date">Due</th>
+		<th js-sort data-sort="owner">Owner:</th>
+		<th js-sort data-sort="end_date">Due:</th>
 		<th js-sort data-sort="total_steps">Steps</th>
-		<th js-sort data-sort="active">Active</th>
+		<th js-sort data-sort="active">Active:</th>
 	</thead>
-	<tbody>
+	<tbody class="table__body">
 
 	</tbody>
 </table>

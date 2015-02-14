@@ -1,0 +1,35 @@
+.table {
+  border-bottom: 2px solid $separator-dark;
+  &--full-width {
+    width: 100%;
+  }
+}
+
+.table__header {
+  background: $table-header-background;
+
+  th {
+    color: $table-header-color;
+    border-top: 8px solid $table-header-background;
+    border-bottom: 8px solid $table-header-background;
+    cursor: pointer;
+    font-weight: 100;
+    line-height: 30px;
+    padding-left: 20px;
+    text-align: left;
+
+    & + th {
+      border-left: 2px solid $table-header-border-color;
+    }
+  }
+}
+
+.table__body {
+  td {
+    padding: 10px 0;
+  }
+}
+
+.table__td--centered {
+  text-align: center;
+}

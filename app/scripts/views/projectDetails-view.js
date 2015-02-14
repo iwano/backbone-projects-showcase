@@ -13,7 +13,7 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
 
     id: 'project-details',
 
-    className: 'project-details',
+    className: 'project-details card',
 
     events: {
       "click a[js-go-back]":             "goBack",

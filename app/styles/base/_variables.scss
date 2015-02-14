@@ -6,16 +6,23 @@ $link-color-hover:   darken(#479FC9, 20%);
 $primary:            #399EC9;
 $secondary:          #F59631;
 $text-color:         #666;
+$separator-bright:   #F5964C;
+$separator-dark:     #C3C5C5;
 
 // tables
-$table-header-background: #8A8E8F;
-$table-header-color:      #EFF0F0;
+$table-header-background:   #8A8E8F;
+$table-header-color:        #EFF0F0;
+$table-header-border-color: #808586;
 
 // cards
-$card-active:           #67BF68;
-$card-background:       #FFF;
-$card-border:           #ccc;
-$card-navigator-arrow:  #F6B673;
-$card-progress:         #6CC26E;
-$card-separator-bright: #F5964C;
-$card-separator-dark:   #F5964C;
+$card-active:          #67BF68;
+$card-background:      #FFF;
+$card-border:          #CCC;
+$card-navigator-arrow: #F6B673;
+$card-progress:        #6CC26E;
+
+// badges
+$badge-active:   $card-active;
+$badge-border:   #DDDDDD;
+$badge-inactive: #F0F1F5;
+

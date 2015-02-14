@@ -1,5 +1,11 @@
 <td><a href="#" js-show-details>{{name}}</a></td>
 <td>{{owner.name}}</td>
 <td>{{end_date}}</td>
-<td>{{total_steps}}</td>
-<td>{{active}}</td>
+<td class="table__td--centered">{{total_steps}}</td>
+<td class="table__td--centered">
+	{{#if active}}
+		<span class="badge badge--active"></span>
+	{{else}}
+		<span class="badge badge--inactive"></span>
+	{{/if}}
+</td>
