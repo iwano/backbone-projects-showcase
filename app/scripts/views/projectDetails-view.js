@@ -63,7 +63,9 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
         total_steps:  this.totalStepsInput.val(),
         current_step: this.currentStepInput.val(),
         active:       this.activeInput.val()
-      });
+      }, {success:function(model) {
+        ProjectsShowcase.projects.add(model);
+      } });
     },
 
     edit: function(e) {

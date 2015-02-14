@@ -60,7 +60,7 @@ ProjectsShowcase.Routers = ProjectsShowcase.Routers || {};
 
     showProjectsNew: function() {
       this.cleanViews();
-      var project =  ProjectsShowcase.projects.create();
+      var project =  new ProjectsShowcase.Models.Project();
 
       ProjectsShowcase.currentProjectView = new ProjectsShowcase.Views.ProjectDetails({
         model: project
