@@ -122,15 +122,30 @@ module.exports = function (grunt) {
         },
         jasmine: {
             all:{
-                src : '/scripts/{,*/}*.js',
+                src : [
+                    '<%= yeoman.app %>/scripts/main.js',
+                    '<%= yeoman.app %>/scripts/projectsFixtures.js',
+                    '<%= yeoman.app %>/scripts/templates.js',
+                    '<%= yeoman.app %>/scripts/routes/projects-router.js',
+                    '<%= yeoman.app %>/scripts/models/project.js',
+                    '<%= yeoman.app %>/scripts/collections/projects.js',
+                    '<%= yeoman.app %>/scripts/views/base-view.js',
+                    '<%= yeoman.app %>/scripts/views/projects-view.js',
+                    '<%= yeoman.app %>/scripts/views/project-view.js',
+                    '<%= yeoman.app %>/scripts/views/projectDetails-view.js'
+                ],
                 options: {
                     keepRunner: true,
                     specs : 'test/spec/**/*.js',
                     vendor : [
+                        'node_modules/sinon/pkg/sinon.js',
                         '<%= yeoman.app %>/bower_components/jquery/dist/jquery.js',
                         '<%= yeoman.app %>/bower_components/lodash/dist/lodash.js',
                         '<%= yeoman.app %>/bower_components/backbone/backbone.js',
                         '<%= yeoman.app %>/bower_components/handlebars/handlebars.js',
+                        '<%= yeoman.app %>/bower_components/Backbone.localStorage/backbone.localStorage.js',
+                        '<%= yeoman.app %>/bower_components/backbone-query-parameters/backbone.queryparams-1.1-shim.js',
+                        '<%= yeoman.app %>/bower_components/backbone-query-parameters/backbone.queryparams.js',
                         '.tmp/scripts/templates.js'
                     ]
                 }

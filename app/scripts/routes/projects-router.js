@@ -8,10 +8,10 @@ ProjectsShowcase.Routers = ProjectsShowcase.Routers || {};
   ProjectsShowcase.Routers.ProjectsRouter = Backbone.Router.extend({
 
     routes: {
-      "":                                   "showProjectsList",
-      "projects": "showProjectsList",
-      "projects/new":                       "showProjectsNew",
-      "projects/:id":                       "showProjectsDetails"
+      "":             "showProjectsList",
+      "projects":     "showProjectsList",
+      "projects/new": "showProjectsNew",
+      "projects/:id": "showProjectsDetails"
     },
 
     initialize: function() {
@@ -33,7 +33,7 @@ ProjectsShowcase.Routers = ProjectsShowcase.Routers || {};
           params = params || {};
       if (params.filter && params.filter != 'all') {
         var active = params.filter == 'active';
-        projects =   ProjectsShowcase.projects.where({ active: active });
+        projects   = ProjectsShowcase.projects.where({ active: active });
         collection = new ProjectsShowcase.Collections.Project(projects);
       }
       ProjectsShowcase.projectsView = new ProjectsShowcase.Views.Projects({
@@ -46,10 +46,10 @@ ProjectsShowcase.Routers = ProjectsShowcase.Routers || {};
 
     showProjectsDetails: function(projectId) {
       this.cleanViews();
-      var id = isNaN(projectId) ? projectId : +projectId,
-          project =  ProjectsShowcase.projects.findWhere({ id: id }),
+      var id       = isNaN(projectId) ? projectId : +projectId,
+          project  =  ProjectsShowcase.projects.findWhere({ id: id }),
           previous = ProjectsShowcase.projects.at(ProjectsShowcase.projects.indexOf(project) - 1),
-          next =     ProjectsShowcase.projects.at(ProjectsShowcase.projects.indexOf(project) + 1);
+          next     = ProjectsShowcase.projects.at(ProjectsShowcase.projects.indexOf(project) + 1);
 
       ProjectsShowcase.currentProjectView = new ProjectsShowcase.Views.ProjectDetails({
         model:    project,

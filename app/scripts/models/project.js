@@ -8,7 +8,7 @@ ProjectsShowcase.Models = ProjectsShowcase.Models || {};
   ProjectsShowcase.Models.Project = Backbone.Model.extend({
 
     initialize: function() {
-      this.on('invalid', function(model, error){
+      this.on('invalid', function(model, error) {
         console.log(error);
       });
     },
@@ -22,20 +22,20 @@ ProjectsShowcase.Models = ProjectsShowcase.Models || {};
     },
 
     validate: function(attrs, options) {
-      if (!attrs.name){
+      if (!attrs.name) {
         return 'Project must have a name';
       }
 
-      if ( !attrs.description ){
+      if (!attrs.description) {
         return 'Project must contain a description';
       }
 
-      if (!attrs.owner || (attrs.owner && !attrs.owner.name)){
+      if (!attrs.owner || (attrs.owner && !attrs.owner.name)) {
         return 'Project must have an owner';
       }
     },
 
-    parse: function(response, options)  {
+    parse: function(response, options) {
       return response;
     }
   });

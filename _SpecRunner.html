@@ -22,6 +22,8 @@
   
   <script src=".grunt/grunt-contrib-jasmine/boot.js"></script>
   
+  <script src="node_modules/sinon/pkg/sinon.js"></script>
+  
   <script src="app/bower_components/jquery/dist/jquery.js"></script>
   
   <script src="app/bower_components/lodash/dist/lodash.js"></script>
@@ -30,15 +32,37 @@
   
   <script src="app/bower_components/handlebars/handlebars.js"></script>
   
+  <script src="app/bower_components/Backbone.localStorage/backbone.localStorage.js"></script>
+  
+  <script src="app/bower_components/backbone-query-parameters/backbone.queryparams-1.1-shim.js"></script>
+  
+  <script src="app/bower_components/backbone-query-parameters/backbone.queryparams.js"></script>
+  
   <script src=".tmp/scripts/templates.js"></script>
   
-  <script src="test/spec/collections/project.js"></script>
+  <script src="app/scripts/main.js"></script>
+  
+  <script src="app/scripts/projectsFixtures.js"></script>
+  
+  <script src="app/scripts/routes/projects-router.js"></script>
+  
+  <script src="app/scripts/models/project.js"></script>
+  
+  <script src="app/scripts/collections/projects.js"></script>
+  
+  <script src="app/scripts/views/base-view.js"></script>
+  
+  <script src="app/scripts/views/projects-view.js"></script>
+  
+  <script src="app/scripts/views/project-view.js"></script>
+  
+  <script src="app/scripts/views/projectDetails-view.js"></script>
+  
+  <script src="test/spec/collections/projects.js"></script>
   
   <script src="test/spec/models/project.js"></script>
   
-  <script src="test/spec/routes/project.js"></script>
-  
-  <script src="test/spec/test.js"></script>
+  <script src="test/spec/routes/projects-router.js"></script>
   
   <script src=".grunt/grunt-contrib-jasmine/reporter.js"></script>
   
