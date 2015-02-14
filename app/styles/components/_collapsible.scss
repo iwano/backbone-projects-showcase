@@ -1,3 +1,18 @@
 .collapsible-content__wrapper {
-  padding: 10px 10px 50px;
+  padding: 10px 10px 50px 28px;
+}
+
+.icon-collapsible-toggle {
+  background-image: image_url('minus.svg');
+  height: 18px;
+  margin-right: 10px;
+  width: 18px;
+
+  &--collapsed {
+    background-image: image_url('plus.svg');
+  }
+}
+
+.collapsible-toggle {
+  cursor: pointer;
 }

@@ -1,0 +1,23 @@
+i[class*="icon"], a[class*="icon"] {
+  display: inline-block;
+}
+
+.icon-x {
+  background-image: image_url('x.svg');
+}
+
+.icon-arrow-previous {
+  background-image: image_url('left-arrow.svg');
+
+  &:hover {
+    background-image: image_url('left-arrow-hover.svg');
+  }
+}
+
+.icon-arrow-next {
+  background-image: image_url('right-arrow.svg');
+
+  &:hover {
+    background-image: image_url('right-arrow-hover.svg');
+  }
+}

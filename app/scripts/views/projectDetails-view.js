@@ -91,7 +91,9 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
     },
 
     collapseContent: function(e) {
-      $(e.currentTarget).next().slideToggle();
+      var header = $(e.currentTarget);
+      header.next().slideToggle();
+      header.find('i').toggleClass('icon-collapsible-toggle--collapsed');
     },
 
     render: function () {

@@ -1,16 +1,17 @@
 {{#if previous}}
-	<a js-previous-project href="#">Previous Project</a>
+	<a js-previous-project href="#" class="project-details__previous icon-arrow-previous" title="previous project"></a>
 {{/if}}
 
 
 <header class="card__header">
 	<h1 class="card__title">{{model.name}}</h1>
+	<a js-go-back href="#" class="project-details__close icon-x" title="close"></a>
 </header>
 
 
 <div class="project-details__info edit-hide">
 	<section class="project-details__description">
-		<h2 js-collapsible>Project Details</h2>
+		<h2 js-collapsible class="collapsible-toggle"><i class="icon-collapsible-toggle"></i>Project Details</h2>
 		<div class="collapsible-content">
 			<div class="collapsible-content__wrapper">
 				{{model.description}}
@@ -22,14 +23,15 @@
 		</span>
 	</section>
 
-	<section class="project-details__description">
-		<h2 js-collapsible>Project Owner</h2>
+	<section class="project-details__owner">
+		<h2 js-collapsible class="collapsible-toggle"><i class="icon-collapsible-toggle"></i>Project Owner</h2>
 		<div class="collapsible-content">
 			<div class="collapsible-content__wrapper">
-				{{model.owner.name}}
-				{{model.owner.image}}
-				{{model.total_steps}}
-				{{model.current_step}}
+				{{{ownerImage model.owner.image}}}
+				<span class="owner-name">{{model.owner.name}}</span>
+				<span class="steps-progress">
+					{{model.total_steps}} / {{model.current_step}}
+				</span>
 				{{model.active}}
 			</div>
 		</div>
@@ -101,10 +103,8 @@
 
 <button js-project-edit type="submit" class="edit-hide">Edit</button>
 
-<a js-go-back href="#">Go Back</a>
-
 
 {{#if next}}
-	<a js-next-project href="#">Next Project</a>
+	<a js-next-project href="#" class="project-details__next icon-arrow-next" title="next project"></a>
 {{/if}}
 
