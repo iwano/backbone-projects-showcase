@@ -54,6 +54,10 @@ module.exports = function (grunt) {
             test: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
                 tasks: ['test:true']
+            },
+            styles: {
+              files: ['<%= yeoman.app %>/styles/{,*/}*.{scss, sass}'],
+              tasks: ['compass', 'autoprefixer']
             }
         },
         connect: {
@@ -120,6 +124,38 @@ module.exports = function (grunt) {
                 'test/spec/{,*/}*.js'
             ]
         },
+
+        compass: {
+            options: {
+                sassDir: '<%= yeoman.app %>/styles',
+                cssDir: '.tmp/styles',
+                imagesDir: '<%= yeoman.app %>/images',
+                httpImagesPath: '/images',
+                relativeAssets: false,
+                assetCacheBuster: false
+            },
+            dev: {
+                environment: 'development'
+            },
+            dist: {
+                environment: 'production'
+            }
+        },
+
+        autoprefixer: {
+            options: {
+                browsers: ['last 1 version']
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '.tmp/styles/',
+                    src: '{,*/}*.css',
+                    dest: '.tmp/styles/'
+                }]
+            }
+        },
+
         jasmine: {
             all:{
                 src : [
@@ -256,6 +292,7 @@ module.exports = function (grunt) {
                 }
             }
         },
+
         rev: {
             dist: {
                 files: {
@@ -287,6 +324,8 @@ module.exports = function (grunt) {
         if (target === 'test') {
             return grunt.task.run([
                 'clean:server',
+                'compass:dev',
+                'autoprefixer',
                 'createDefaultTemplate',
                 'handlebars',
                 'connect:test',
@@ -297,6 +336,8 @@ module.exports = function (grunt) {
 
         grunt.task.run([
             'clean:server',
+            'compass:dev',
+            'autoprefixer',
             'createDefaultTemplate',
             'handlebars',
             'connect:livereload',
@@ -309,6 +350,8 @@ module.exports = function (grunt) {
         isConnected = Boolean(isConnected);
         var testTasks = [
                 'clean:server',
+                'compass:dev',
+                'autoprefixer',
                 'createDefaultTemplate',
                 'handlebars',
                 'jasmine'
@@ -325,6 +368,8 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
+        'compass:dist',
+        'autoprefixer',
         'createDefaultTemplate',
         'handlebars',
         'useminPrepare',
