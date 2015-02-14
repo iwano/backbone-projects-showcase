@@ -21,7 +21,8 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
       "click a[js-next-project]":        "showNextProject",
       "click button[js-project-save]":   "save",
       "click button[js-project-edit]":   "edit",
-      "click button[js-project-cancel]": "cancel"
+      "click button[js-project-cancel]": "cancel",
+      "click h2[js-collapsible]":            "collapseContent"
     },
 
     initialize: function (options) {
@@ -85,6 +86,10 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
 
     closeForm: function() {
       this.$el.removeClass('project-details--editing');
+    },
+
+    collapseContent: function(e) {
+      $(e.currentTarget).next().slideToggle();
     },
 
     render: function () {

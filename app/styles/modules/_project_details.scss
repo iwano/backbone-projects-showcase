@@ -1,0 +1,27 @@
+.project-details {
+  &__form {
+    display: none;
+  }
+
+  &--editing {
+    .project-details__form {
+      display: block;
+    }
+
+    .project-details__info {
+      display: none;
+    }
+  }
+
+  &__info section {
+    border-bottom: 2px solid $card-border;
+    line-height: 23px;
+    position: relative;
+  }
+
+  &__date {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}

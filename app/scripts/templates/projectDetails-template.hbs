@@ -2,21 +2,42 @@
 	<a js-previous-project href="#">Previous Project</a>
 {{/if}}
 
-<div class="project-details">
-	{{name}}
-	{{description}}
-	{{owner.name}}
-	{{owner.image}}
-	{{start_date}}
-	{{end_date}}
-	{{total_steps}}
-	{{current_step}}
-	{{active}}
+
+<header class="card__header">
+	<h1 class="card__title">{{model.name}}</h1>
+</header>
+
+
+<div class="project-details__info">
+	<section class="project-details__description">
+		<h2 js-collapsible>Project Details</h2>
+		<div class="collapsible-content">
+			<div class="collapsible-content__wrapper">
+				{{model.description}}
+			</div>
+		</div>
+
+		<span class="project-details__date">
+			{{model.start_date}} to {{model.end_date}}
+		</span>
+	</section>
+
+	<section class="project-details__description">
+		<h2 js-collapsible>Project Owner</h2>
+		<div class="collapsible-content">
+			<div class="collapsible-content__wrapper">
+				{{model.owner.name}}
+				{{model.owner.image}}
+				{{model.total_steps}}
+				{{model.current_step}}
+				{{model.active}}
+			</div>
+		</div>
+	</section>
 </div>
 
 
-
-<form name="project_form" class="project-editing">
+<form name="project_form" class="project-details__form">
 	<input type="text" name="name" value="{{model.name}}"/>
 	<textarea name="description">{{model.description}}</textarea>
 	<input type="text" name="owner_name" value="{{model.owner.name}}"/>
@@ -30,8 +51,11 @@
 	<button js-project-cancel>Cancel</button>
 </form>
 
+
 <button js-project-edit type="submit">Edit</button>
+
 <a js-go-back href="#">Go Back</a>
+
 
 {{#if next}}
 	<a js-next-project href="#">Next Project</a>
