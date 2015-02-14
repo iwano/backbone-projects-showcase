@@ -25,9 +25,9 @@
 	<input type="text" name="end_date" value="{{model.end_date}}"/>
 	<input type="number" name="total_steps" value="{{model.total_steps}}"/>
 	<input type="number" name="current_step" value="{{model.current_step}}"/>
-	<input type="checkbox" name="active" value="{{model.active}}"/>
+	<input type="checkbox" name="active" {{isActive model.active}}/>
 	<button js-project-save type="submit">Save</button>
-	<button js-project-cancel type="submit">Cancel</button>
+	<button js-project-cancel>Cancel</button>
 </form>
 
 <button js-project-edit type="submit">Edit</button>

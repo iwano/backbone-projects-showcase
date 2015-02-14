@@ -52,17 +52,18 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
 
     save: function(e) {
       e.preventDefault();
+      var values = this.form.serializeArray();
       this.model.save({
-        name:         this.nameInput.val(),
-        description:  this.descriptionInput.val(),
+        name:         values[0].value,
+        description:  values[1].value,
         owner: {
-          name:       this.ownerNameInput.val()
+          name:       values[2].value
         },
-        start_date:   this.startsInput.val(),
-        end_date:     this.endsInput.val(),
-        total_steps:  this.totalStepsInput.val(),
-        current_step: this.currentStepInput.val(),
-        active:       this.activeInput.val()
+        start_date:   values[4].value,
+        end_date:     values[5].value,
+        total_steps:  values[6].value,
+        current_step: values[7].value,
+        active:       (values[8] ? true : false)
       }, {success:function(model) {
         ProjectsShowcase.projects.add(model);
       } });
@@ -87,24 +88,17 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
     },
 
     render: function () {
-      $("#main-content").html(
-        this.$el.html(this.template({
-          model:    this.model.toJSON(),
-          next:     this.next,
-          previous: this.previous
-        }))
-      );
+      this.$el.html(this.template({
+        model:    this.model.toJSON(),
+        next:     this.next,
+        previous: this.previous
+      }));
+      this.$el.appendTo($("#main-content"));
       if (this.model.isNew()) {
         this.showForm();
       }
-      this.nameInput        = $("input[name='name']");
-      this.descriptionInput = $("textarea[name='description']");
-      this.ownerNameInput   = $("input[name='owner_name']");
-      this.startsInput      = $("input[name='start_date']");
-      this.endsInput        = $("input[name='end_date']");
-      this.totalStepsInput  = $("input[name='total_steps']");
-      this.currentStepInput = $("input[name='current_step']");
-      this.activeInput      = $("input[name='active']");
+      this.form = $("form");
+
     }
 
   });
