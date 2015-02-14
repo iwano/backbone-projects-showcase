@@ -38,12 +38,12 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
 
     showPreviousProject: function(e) {
       e.preventDefault();
-      this.showProject(this.previous);
+      this.previous && this.showProject(this.previous);
     },
 
     showNextProject: function(e) {
       e.preventDefault();
-      this.showProject(this.next);
+      this.next && this.showProject(this.next);
     },
 
     showProject: function(project) {
@@ -86,7 +86,11 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
 
     render: function () {
       $("#main-content").html(
-        this.$el.html(this.template(this.model.toJSON()))
+        this.$el.html(this.template({
+          model:    this.model.toJSON(),
+          next:     this.next,
+          previous: this.previous
+        }))
       );
       if (this.model.isNew()) {
         this.showForm();
