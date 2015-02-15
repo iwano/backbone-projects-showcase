@@ -1,4 +1,3 @@
 Handlebars.registerHelper('formatDate', function(date, format) {
-  return moment(date).format(format);
-  return true;
+  return isNaN(date) ? date : moment(date).format(format);
 });
