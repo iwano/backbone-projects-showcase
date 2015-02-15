@@ -111,6 +111,7 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
         this.showForm();
       }
       this.form = $("form");
+      $('input[js-datepicker]').pickadate();
 
     }
 
