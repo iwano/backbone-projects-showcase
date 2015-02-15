@@ -4,7 +4,7 @@
 
 
 <header class="card__header">
-	<h1 class="card__title">{{model.name}}</h1>
+	<h1 class="card__title">{{projectDetailsTitle model.name}}</h1>
 	<a js-go-back href="#" class="project-details__close icon-x" title="close"></a>
 </header>
 
@@ -46,11 +46,6 @@
 		<label class="label-block">
 			Name:
 			<input type="text" name="name" class="input-block" required="true" value="{{model.name}}"/>
-		</label>
-
-		<label class="label-block">
-			Is active?:
-			<input type="checkbox" name="active" class="input-block" {{isActive model.active}}/>
 		</label>
 	</div>
 
@@ -94,6 +89,13 @@
 		<label class="label-block">
 			Current step:
 			<input type="number" name="current_step" class="input-block" value="{{model.current_step}}"/>
+		</label>
+	</div>
+
+	<div class="label-group">
+		<label class="label-block">
+			Is active?:
+			<input type="checkbox" name="active" class="input-block" {{isActive model.active}}/>
 		</label>
 	</div>
 

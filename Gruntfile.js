@@ -132,6 +132,7 @@ module.exports = function (grunt) {
                 imagesDir: '<%= yeoman.app %>/images',
                 fontsDir: '<%= yeoman.app %>/styles/fonts',
                 httpFontsPath: '/fonts',
+                importPath: '<%= yeoman.app %>/bower_components',
                 httpImagesPath: '/images',
                 relativeAssets: false,
                 assetCacheBuster: false
@@ -167,6 +168,7 @@ module.exports = function (grunt) {
                     '<%= yeoman.app %>/scripts/helpers/isActive.js',
                     '<%= yeoman.app %>/scripts/helpers/isFilterActive.js',
                     '<%= yeoman.app %>/scripts/helpers/ownerImage.js',
+                    '<%= yeoman.app %>/scripts/helpers/projectDetailsTitle.js',
                     '<%= yeoman.app %>/scripts/routes/projects-router.js',
                     '<%= yeoman.app %>/scripts/models/project.js',
                     '<%= yeoman.app %>/scripts/collections/projects.js',

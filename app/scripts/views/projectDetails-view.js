@@ -22,7 +22,7 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
       "click button[js-project-save]":   "save",
       "click button[js-project-edit]":   "edit",
       "click button[js-project-cancel]": "cancel",
-      "click h2[js-collapsible]":            "collapseContent"
+      "click h2[js-collapsible]":        "collapseContent"
     },
 
     initialize: function (options) {
@@ -34,6 +34,10 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
 
     goBack: function(e) {
       e.preventDefault();
+      this.navigateToProjectsList();
+    },
+
+    navigateToProjectsList: function() {
       ProjectsShowcase.projectsRouter.navigate('projects', { trigger: true });
     },
 
@@ -79,7 +83,7 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
 
     cancel: function(e) {
       e.preventDefault();
-      this.closeForm();
+      this.model.isNew() ? this.navigateToProjectsList() : this.closeForm();
     },
 
     showForm: function() {
