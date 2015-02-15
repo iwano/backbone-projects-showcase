@@ -13,7 +13,7 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
 
     id: 'projects-container',
 
-    className: 'card card--tall-footer',
+    className: 'card card--tall-footer projects-list',
 
     events: {
       "click input[js-filter-all]":      "showAll",

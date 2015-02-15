@@ -170,6 +170,7 @@ module.exports = function (grunt) {
                     '<%= yeoman.app %>/scripts/helpers/isFilterActive.js',
                     '<%= yeoman.app %>/scripts/helpers/ownerImage.js',
                     '<%= yeoman.app %>/scripts/helpers/projectDetailsTitle.js',
+                    '<%= yeoman.app %>/scripts/helpers/showProgress.js',
                     '<%= yeoman.app %>/scripts/routes/projects-router.js',
                     '<%= yeoman.app %>/scripts/models/project.js',
                     '<%= yeoman.app %>/scripts/collections/projects.js',

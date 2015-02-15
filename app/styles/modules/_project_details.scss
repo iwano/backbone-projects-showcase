@@ -76,8 +76,19 @@
     font-size: 20px;
     position: relative;
   }
-}
 
-.steps-progress {
-  display: block;
+  .progress {
+    margin-top: 20px;
+
+    &__numbers {
+      bottom: 9px;
+      font-size: 20px;
+      margin-left: 5px;
+      position: relative;
+    }
+
+    &__current-step {
+      color: $progress-steps-bar-color;
+    }
+  }
 }

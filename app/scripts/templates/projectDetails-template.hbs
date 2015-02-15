@@ -30,9 +30,17 @@
 			<div class="collapsible-content__wrapper">
 				{{{ownerImage model.owner.image}}}
 				<span class="owner-name">{{model.owner.name}}</span>
-				<span class="steps-progress">
-					{{model.total_steps}} / {{model.current_step}}
-				</span>
+
+				<div class="project-details__steps-progress">
+					<div class="progress">
+						<span class="progress__bar" style="width: {{showProgress model.total_steps model.current_step}}"></span>
+					</div>
+					<span class="progress__numbers">
+						<span class="progress__current-step">{{model.current_step}}</span> / {{model.total_steps}}
+					</span>
+				</div>
+
+
 				{{model.active}}
 			</div>
 		</div>
