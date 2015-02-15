@@ -165,6 +165,7 @@ module.exports = function (grunt) {
                     '<%= yeoman.app %>/scripts/main.js',
                     '<%= yeoman.app %>/scripts/projectsFixtures.js',
                     '<%= yeoman.app %>/scripts/templates.js',
+                    '<%= yeoman.app %>/scripts/helpers/formatDate.js',
                     '<%= yeoman.app %>/scripts/helpers/isActive.js',
                     '<%= yeoman.app %>/scripts/helpers/isFilterActive.js',
                     '<%= yeoman.app %>/scripts/helpers/ownerImage.js',
@@ -189,6 +190,10 @@ module.exports = function (grunt) {
                         '<%= yeoman.app %>/bower_components/Backbone.localStorage/backbone.localStorage.js',
                         '<%= yeoman.app %>/bower_components/backbone-query-parameters/backbone.queryparams-1.1-shim.js',
                         '<%= yeoman.app %>/bower_components/backbone-query-parameters/backbone.queryparams.js',
+                        '<%= yeoman.app %>/bower_components/pickadate/lib/picker.js',
+                        '<%= yeoman.app %>/bower_components/pickadate/lib/picker.date.js',
+                        '<%= yeoman.app %>/bower_components/pickadate/lib/legacy.js',
+                        '<%= yeoman.app %>/bower_components/moment/moment.js',
                         '.tmp/scripts/templates.js'
                     ]
                 }

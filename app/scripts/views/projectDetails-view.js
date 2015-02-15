@@ -106,13 +106,20 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
         next:     this.next,
         previous: this.previous
       }));
+
       this.$el.appendTo($("#main-content"));
       if (this.model.isNew()) {
         this.showForm();
       }
       this.form = $("form");
-      $('input[js-datepicker]').pickadate();
-
+      $('input[js-datepicker-start]').pickadate({
+        formatSubmit: 'dd/mm/yyyy',
+        hiddenName: true
+      });
+      $('input[js-datepicker-end]').pickadate({
+        formatSubmit: 'dd/mm/yyyy',
+        hiddenName: true
+      });
     }
 
   });
