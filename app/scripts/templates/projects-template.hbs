@@ -26,11 +26,11 @@
 
 <table class="table table--full-width" id="projects-list">
 	<thead class="table__header">
-		<th js-sort data-sort="name">Project Name</th>
-		<th js-sort data-sort="owner">Owner:</th>
-		<th js-sort data-sort="end_date">Due:</th>
-		<th js-sort data-sort="total_steps">Steps</th>
-		<th js-sort data-sort="active">Active:</th>
+		<th js-sort data-sort="name">Project Name {{{sortIndicator orderBy 'name' order}}}</th>
+		<th js-sort data-sort="owner">Owner: {{{sortIndicator orderBy 'owner' order}}}</th>
+		<th js-sort data-sort="end_date">Due: {{{sortIndicator orderBy 'end_date' order}}}</th>
+		<th js-sort data-sort="total_steps">Steps {{{sortIndicator orderBy 'total_steps' order}}}</th>
+		<th js-sort data-sort="active">Active: {{{sortIndicator orderBy 'active' order}}}</th>
 	</thead>
 	<tbody class="table__body">
 

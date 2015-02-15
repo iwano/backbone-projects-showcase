@@ -37,7 +37,7 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
     render: function () {
       console.log([this.orderBy, this.filterBy, this.order]);
       $("#main-content").html(
-        this.$el.html(this.template({ filter: this.filterBy }))
+        this.$el.html(this.template({ filter: this.filterBy, orderBy: this.orderBy, order: this.order }))
       );
       this.addAll();
     },
