@@ -15,6 +15,7 @@
 		<div class="collapsible-content">
 			<div class="collapsible-content__wrapper">
 				{{model.description}}
+				<button js-project-edit type="submit" class="edit-hide btn btn--primary project-details__edit">Edit</button>
 			</div>
 		</div>
 
@@ -96,12 +97,9 @@
 		</label>
 	</div>
 
-	<button js-project-save type="submit">Save</button>
-	<button js-project-cancel>Cancel</button>
+	<button js-project-save type="submit" class="btn btn--primary">Save</button>
+	<button js-project-cancel class="btn btn--secondary">Cancel</button>
 </form>
-
-
-<button js-project-edit type="submit" class="edit-hide">Edit</button>
 
 
 {{#if next}}

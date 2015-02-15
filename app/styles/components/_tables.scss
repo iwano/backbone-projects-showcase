@@ -18,6 +18,11 @@
     padding-left: 20px;
     text-align: left;
 
+    &:hover {
+      color: $button-color;
+      font-weight: 400;
+    }
+
     & + th {
       border-left: 2px solid $table-header-border-color;
     }

@@ -1,0 +1,51 @@
+.btn, a.btn {
+  border: none;
+  border-radius: 5px;
+  color: $button-color;
+  padding: 10px 15px;
+  text-decoration: none;
+
+  &--primary {
+    background: $primary;
+
+    &:hover {
+      background: darken($primary, 10%);
+    }
+  }
+
+  &--secondary {
+    background: $secondary;
+
+    &:hover {
+      background: darken($secondary, 10%);
+    }
+  }
+}
+
+.btn-group {
+  .btn {
+    background: $button-color;
+    border: 2px solid $button-inactive;
+    color: $button-inactive;
+    cursor: pointer;
+    padding: 8px;
+
+    & ~ .btn {
+      margin-left: 8px;
+    }
+
+    &:hover {
+      background: darken($button-color, 10%);
+    }
+  }
+
+  input[type='radio'] {
+    display: none;
+  }
+
+  input[type='radio']:checked + .btn {
+    background: $primary;
+    border-color: $primary;
+    color: $button-color;
+  }
+}

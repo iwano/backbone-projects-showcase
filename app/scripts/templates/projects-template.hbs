@@ -1,14 +1,21 @@
 
 <header class="card__header">
 	<h1 class="card__title card__title--small">Projects Index</h1>
-	<ul class="card-controls card-controls--center">
-		<li><a href="#" js-filter-all>View All</a></li>
-		<li><a href="#" js-filter-active>Active</a></li>
-		<li><a href="#" js-filter-inactive>Inactive</a></li>
-	</ul>
+	<div class="card-controls card-controls--center">
+		<div class="btn-group">
+			<input type="radio" id="filter-all" name="radio" js-filter-all {{isFilterActive filter "all"}}/>
+			<label for="filter-all" class="btn">View Al</label>
+
+			<input type="radio" id="filter-active" name="radio" js-filter-active {{isFilterActive filter "active"}}/>
+			<label for="filter-active" class="btn">Active</label>
+
+			<input type="radio" id="filter-inactive" name="radio" js-filter-inactive {{isFilterActive filter "inactive"}}/>
+			<label for="filter-inactive" class="btn">Inactive</label>
+		</div>
+	</div>
 
 	<ul class="card-controls card-controls--right">
-		<li><a href="#" js-project-new>New Project</a></li>
+		<li><a href="#" js-project-new class="btn btn--secondary">New Project</a></li>
 	</ul>
 </header>
 

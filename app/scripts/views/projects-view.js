@@ -16,11 +16,11 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
     className: 'card card--tall-footer',
 
     events: {
-      "click a[js-filter-all]":      "showAll",
-      "click a[js-filter-active]":   "showActive",
-      "click a[js-filter-inactive]": "showInactive",
-      "click a[js-project-new]":     "newProject",
-      "click th[js-sort]":           "sortProjects"
+      "click input[js-filter-all]":      "showAll",
+      "click input[js-filter-active]":   "showActive",
+      "click input[js-filter-inactive]": "showInactive",
+      "click a[js-project-new]":         "newProject",
+      "click th[js-sort]":               "sortProjects"
     },
 
     initialize: function(options){
@@ -37,7 +37,7 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
     render: function () {
       console.log([this.orderBy, this.filterBy, this.order]);
       $("#main-content").html(
-        this.$el.html(this.template)
+        this.$el.html(this.template({ filter: this.filterBy }))
       );
       this.addAll();
     },
