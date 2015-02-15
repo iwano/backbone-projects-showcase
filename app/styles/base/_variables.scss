@@ -1,15 +1,21 @@
 // global
 $background-primary: #F6F6F6;
-$button-color:       #FFF;
 $button-inactive:    #999;
 $header-color:       #666666;
 $link-color:         #479FC9;
 $link-color-hover:   darken(#479FC9, 20%);
 $primary:            #399EC9;
+$primary-hover:      darken($primary, 10%);
 $secondary:          #F59631;
+$secondary-hover:    darken($secondary, 10%);
 $text-color:         #666;
+$text-color-light:   #C3C5C5;
 $separator-bright:   #F5964C;
 $separator-dark:     #C3C5C5;
+
+// buttons
+$button-color:       #FFF;
+$button-color-hover: darken($button-color, 10%);
 
 // tables
 $table-header-background:   #8A8E8F;

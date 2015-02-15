@@ -13,7 +13,7 @@
     background: $primary;
 
     &:hover {
-      background: darken($primary, 10%);
+      background: $primary-hover;
     }
   }
 
@@ -21,7 +21,7 @@
     background: $secondary;
 
     &:hover {
-      background: darken($secondary, 10%);
+      background: $secondary-hover;
     }
   }
 }
@@ -47,7 +47,7 @@
     }
 
     &:hover {
-      background: darken($button-color, 10%);
+      background: $button-color-hover;
     }
   }
 

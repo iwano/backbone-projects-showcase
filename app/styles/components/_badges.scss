@@ -12,4 +12,9 @@
   &--inactive {
     background: $badge-inactive;
   }
+
+  &--big {
+    height: 20px;
+    width: 20px;
+  }
 }

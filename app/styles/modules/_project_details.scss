@@ -1,4 +1,6 @@
 .project-details {
+  padding: 25px;
+
   .edit-show {
     display: none;
   }
@@ -16,17 +18,20 @@
   &__info section {
     border-bottom: 2px solid $card-border;
     line-height: 23px;
+    padding-right: 24px;
     position: relative;
   }
 
   &__date {
+    color: $text-color-light;
+    font-size: 15px;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 34px;
+    top: 10px;
   }
 
   &__owner .collapsible-content__wrapper {
-    padding-left: 50px;
+    padding-left: 48px;
   }
 
   &__close {
@@ -34,8 +39,8 @@
     display: inline-block;
     height: 20px;
     position: absolute;
-    right: 30px;
-    top: 30px;
+    right: 25px;
+    top: 25px;
     width: 20px;
   }
 
@@ -63,7 +68,7 @@
     display: block;
     float: right;
     position: relative;
-    top: 15px;
+    top: 26px;
   }
 
   .owner-image {
@@ -73,7 +78,8 @@
   .owner-name {
     bottom: 10px;
     color: $owner-name-color;
-    font-size: 20px;
+    font-size: 18px;
+    margin-left: 10px;
     position: relative;
   }
 
@@ -90,5 +96,15 @@
     &__current-step {
       color: $progress-steps-bar-color;
     }
+  }
+
+  .card__header {
+    height: 26px;
+    padding-bottom: 25px;
+  }
+
+  h2 {
+    font-size: 21px;
+    margin: 30px 0;
   }
 }
