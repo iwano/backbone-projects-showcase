@@ -1,7 +1,11 @@
 .btn, a.btn {
   border: none;
   border-radius: 5px;
+  box-sizing: border-box;
   color: $button-color;
+  font-size: 15px;
+  height: 36px;
+  line-height: 15px;
   padding: 10px 15px;
   text-decoration: none;
 
@@ -23,15 +27,23 @@
 }
 
 .btn-group {
+  font-size: 0;
+
   .btn {
     background: $button-color;
-    border: 2px solid $button-inactive;
+    border: 1px solid $button-inactive;
     color: $button-inactive;
     cursor: pointer;
-    padding: 8px;
+    display: inline-block;
+    font-size: 12px;
+    font-style: italic;
+    height: 28px;
+    letter-spacing: 1px;
+    line-height: 12px;
+    padding: 7px 8px;
 
     & ~ .btn {
-      margin-left: 8px;
+      margin-left: 14px;
     }
 
     &:hover {

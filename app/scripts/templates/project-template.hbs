@@ -1,14 +1,23 @@
 <td><a href="#" js-show-details>{{name}}</a></td>
+
+
 <td>{{owner.name}}</td>
-<td>{{formatDate end_date 'MMMM DD, YYYY'}}</td>
+
+
+<td>{{formatDate end_date 'MMM DD, YYYY'}}</td>
+
+
 <td class="table__td--centered">
 	<span>{{total_steps}}</span>
 
 	<div class="progress progress--small">
 		<span class="progress__bar" style="width: {{showProgress total_steps current_step}}"></span>
 	</div>
-	<span class="progress__current-step">{{current_step}}</span>
+
+	<span class="{{hasProjectStarted total_steps current_step}}">{{current_step}}</span>
 </td>
+
+
 <td class="table__td--centered">
 	{{#if active}}
 		<span class="badge badge--active"></span>

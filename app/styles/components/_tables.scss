@@ -3,6 +3,14 @@
   &--full-width {
     width: 100%;
   }
+
+  tbody tr:nth-child(1) td {
+    padding-top: 24px;
+  }
+
+  tbody tr:last-child td {
+    padding-bottom: 30px;
+  }
 }
 
 .table__header {
@@ -13,6 +21,7 @@
     border-top: 8px solid $table-header-background;
     border-bottom: 8px solid $table-header-background;
     cursor: pointer;
+    font-size: 15px;
     font-weight: 100;
     line-height: 30px;
     padding-left: 20px;
@@ -20,7 +29,6 @@
 
     &:hover {
       color: $button-color;
-      font-weight: 400;
     }
 
     & + th {
@@ -31,7 +39,13 @@
 
 .table__body {
   td {
-    padding: 10px 0;
+    font-size: 14px;
+    padding: 12px 0;
+  }
+
+  a {
+    font-size: 16px;
+    margin-left: 9%;
   }
 }
 
