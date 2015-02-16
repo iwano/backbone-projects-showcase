@@ -1,3 +1,5 @@
+'use strict';
+
 Handlebars.registerHelper('sortIndicator', function(sort, name, order) {
   if (sort === name && order === 'ASC') {
     return "<i class='icon-sort-indicator'></i>";

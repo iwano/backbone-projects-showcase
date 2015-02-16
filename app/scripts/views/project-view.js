@@ -16,7 +16,7 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
     className: '',
 
     events: {
-      "click a[js-show-details]": "showDetails"
+      'click a[js-show-details]': 'showDetails'
     },
 
     initialize: function () {

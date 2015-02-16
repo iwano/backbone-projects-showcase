@@ -1,3 +1,5 @@
+'use strict';
+
 Handlebars.registerHelper('ownerImage', function(image) {
   var url = image ? image : 'images/avatar.svg';
 

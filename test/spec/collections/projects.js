@@ -19,15 +19,5 @@
 
     });
 
-    describe('filtering', function() {
-
-      xit('filter method', function() {
-        var collection = new ProjectsShowcase.Collections.Project();
-        expect(collection.orderBy)
-          .toEqual('id');
-      });
-
-    });
-
   });
 })();

@@ -24,7 +24,7 @@
       beforeEach(function() {
         project = new ProjectsShowcase.Models.Project();
         eventSpy = sinon.spy();
-        project.bind("invalid", eventSpy);
+        project.bind('invalid', eventSpy);
       });
 
       describe('when saving without name', function() {
@@ -34,7 +34,7 @@
           expect(eventSpy.calledOnce).toBeTruthy();
           expect(eventSpy.calledWith(
             project,
-            "Project must have a name"
+            'Project must have a name'
           )).toBeTruthy();
         });
       });
@@ -46,7 +46,7 @@
           expect(eventSpy.calledOnce).toBeTruthy();
           expect(eventSpy.calledWith(
             project,
-            "Project must contain a description"
+            'Project must contain a description'
           )).toBeTruthy();
         });
 
@@ -58,7 +58,7 @@
           expect(eventSpy.calledOnce).toBeTruthy();
           expect(eventSpy.calledWith(
             project,
-            "Project must have an owner"
+            'Project must have an owner'
           )).toBeTruthy();
         });
       });

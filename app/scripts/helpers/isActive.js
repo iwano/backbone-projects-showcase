@@ -1,4 +1,6 @@
+'use strict';
+
 Handlebars.registerHelper('isActive', function(active) {
 
-  return active ? "checked='true'" : "";
+  return active ? "checked='true'" : '';
 });

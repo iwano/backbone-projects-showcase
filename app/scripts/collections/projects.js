@@ -12,7 +12,7 @@ ProjectsShowcase.Collections = ProjectsShowcase.Collections || {};
       this.order   = 'ASC';
     },
 
-    localStorage: new Backbone.LocalStorage("projects"),
+    localStorage: new Backbone.LocalStorage('projects'),
 
     comparator: function(m1, m2) {
       var value1, value2, res;
@@ -35,8 +35,8 @@ ProjectsShowcase.Collections = ProjectsShowcase.Collections || {};
         res = 0;
       }
 
-      if (this.order === "DESC") {
-        res = -res
+      if (this.order === 'DESC') {
+        res = -res;
       }
       return res;
 

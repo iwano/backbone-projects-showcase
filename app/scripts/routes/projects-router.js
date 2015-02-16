@@ -8,10 +8,10 @@ ProjectsShowcase.Routers = ProjectsShowcase.Routers || {};
   ProjectsShowcase.Routers.ProjectsRouter = Backbone.Router.extend({
 
     routes: {
-      "":             "showProjectsList",
-      "projects":     "showProjectsList",
-      "projects/new": "showProjectsNew",
-      "projects/:id": "showProjectsDetails"
+      '':             'showProjectsList',
+      'projects':     'showProjectsList',
+      'projects/new': 'showProjectsNew',
+      'projects/:id': 'showProjectsDetails'
     },
 
     initialize: function() {
@@ -31,8 +31,8 @@ ProjectsShowcase.Routers = ProjectsShowcase.Routers || {};
       var collection,
           projects,
           params = params || {};
-      if (params.filter && params.filter != 'all') {
-        var active = params.filter == 'active';
+      if (params.filter && params.filter !== 'all') {
+        var active = params.filter === 'active';
         projects   = ProjectsShowcase.projects.where({ active: active });
         collection = new ProjectsShowcase.Collections.Project(projects);
       }

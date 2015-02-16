@@ -2,7 +2,7 @@
 
 (function () {
   beforeEach(function() {
-    this.router = new ProjectsShowcase.Routers.ProjectsRouter;
+    this.router = new ProjectsShowcase.Routers.ProjectsRouter();
     try {
       Backbone.history.start({ silent:true });
     } catch(e) {}
@@ -19,7 +19,7 @@
 
   describe('navigating to projects list page', function() {
     describe('with path /', function() {
-      it("it constructs the projects list view correctly", function() {
+      it('it constructs the projects list view correctly', function() {
         this.router.navigate('', true);
 
         expect(ProjectsShowcase.projectsView)
@@ -34,7 +34,7 @@
     });
 
     describe('with path /products', function() {
-      it("it constructs the projects list view correctly", function() {
+      it('it constructs the projects list view correctly', function() {
         this.router.navigate('/products', true);
 
         expect(ProjectsShowcase.projectsView)
@@ -49,7 +49,7 @@
     });
 
     describe('with path /projects?filter=active&sort=id&order=ASC', function() {
-      it("it constructs the projects list view correctly", function() {
+      it('it constructs the projects list view correctly', function() {
         this.router.navigate('projects?filter=active&sort=id&order=ASC', true);
 
         expect(ProjectsShowcase.projectsView)
@@ -64,7 +64,7 @@
     });
 
     describe('with path /projects?filter=inactive&sort=end_date&order=DESC', function() {
-      it("it constructs the projects list view correctly", function() {
+      it('it constructs the projects list view correctly', function() {
         this.router.navigate('projects?filter=inactive&sort=end_date&order=DESC', true);
 
         expect(ProjectsShowcase.projectsView)
@@ -81,7 +81,7 @@
 
   describe('navigating to a product details page', function() {
     describe('first of collection', function() {
-      it("it constructs the project details view correctly", function() {
+      it('it constructs the project details view correctly', function() {
         this.router.navigate('projects/1', true);
 
         expect(ProjectsShowcase.currentProjectView)
@@ -96,7 +96,7 @@
     });
 
     describe('last of collection', function() {
-      it("it constructs the project details view correctly", function() {
+      it('it constructs the project details view correctly', function() {
         this.router.navigate('projects/30', true);
 
         expect(ProjectsShowcase.currentProjectView)
@@ -112,7 +112,7 @@
   });
 
   describe('navigating to the new project page', function() {
-    it("it constructs the project details view correctly", function() {
+    it('it constructs the project details view correctly', function() {
       this.router.navigate('projects/new', true);
 
       expect(ProjectsShowcase.currentProjectView)

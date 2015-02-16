@@ -16,13 +16,13 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
     className: 'project-details',
 
     events: {
-      "click a[js-go-back]":             "goBack",
-      "click a[js-previous-project]":    "showPreviousProject",
-      "click a[js-next-project]":        "showNextProject",
-      "click button[js-project-save]":   "save",
-      "click button[js-project-edit]":   "edit",
-      "click button[js-project-cancel]": "cancel",
-      "click h2[js-collapsible]":        "collapseContent"
+      'click a[js-go-back]':             'goBack',
+      'click a[js-previous-project]':    'showPreviousProject',
+      'click a[js-next-project]':        'showNextProject',
+      'click button[js-project-save]':   'save',
+      'click button[js-project-edit]':   'edit',
+      'click button[js-project-cancel]': 'cancel',
+      'click h2[js-collapsible]':        'collapseContent'
     },
 
     initialize: function (options) {
@@ -107,11 +107,11 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
         previous: this.previous
       }));
 
-      this.$el.appendTo($("#main-content"));
+      this.$el.appendTo($('#main-content'));
       if (this.model.isNew()) {
         this.showForm();
       }
-      this.form = $("form");
+      this.form = $('form');
       $('input[js-datepicker-start]').pickadate({
         formatSubmit: 'dd/mm/yyyy',
         hiddenName: true
