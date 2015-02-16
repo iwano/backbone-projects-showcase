@@ -165,6 +165,7 @@ module.exports = function (grunt) {
                     '<%= yeoman.app %>/scripts/main.js',
                     '<%= yeoman.app %>/scripts/projectsFixtures.js',
                     '<%= yeoman.app %>/scripts/templates.js',
+                    '<%= yeoman.app %>/scripts/helpers/beautifyDate.js',
                     '<%= yeoman.app %>/scripts/helpers/formatDate.js',
                     '<%= yeoman.app %>/scripts/helpers/hasProjectStarted.js',
                     '<%= yeoman.app %>/scripts/helpers/isActive.js',
