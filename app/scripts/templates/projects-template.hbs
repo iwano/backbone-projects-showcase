@@ -1,4 +1,3 @@
-
 <header class="card__header">
 	<h1 class="card__title card__title--small">Projects Index</h1>
 	<div class="card-controls card-controls--center">
@@ -19,16 +18,18 @@
 	</ul>
 </header>
 
+
 {{#each projects}}
-<h3>By {{name}}</h3>
-<div class="body">{{description}}</div>
+	<h3>By {{name}}</h3>
+	<div class="body">{{description}}</div>
 {{/each}}
+
 
 <table class="table table--full-width" id="projects-list">
 	<thead class="table__header">
 		<th js-sort data-sort="name">Project Name {{{sortIndicator orderBy 'name' order}}}</th>
-		<th js-sort data-sort="owner">Owner: {{{sortIndicator orderBy 'owner' order}}}</th>
-		<th js-sort data-sort="end_date">Due: {{{sortIndicator orderBy 'end_date' order}}}</th>
+		<th js-sort class="td--hide-mobile" data-sort="owner">Owner: {{{sortIndicator orderBy 'owner' order}}}</th>
+		<th js-sort class="td--hide-mobile" data-sort="end_date">Due: {{{sortIndicator orderBy 'end_date' order}}}</th>
 		<th js-sort data-sort="total_steps">Steps {{{sortIndicator orderBy 'total_steps' order}}}</th>
 		<th js-sort data-sort="active">Active: {{{sortIndicator orderBy 'active' order}}}</th>
 	</thead>

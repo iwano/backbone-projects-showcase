@@ -1,124 +1,137 @@
-{{#if previous}}
-	<a js-previous-project href="#" class="project-details__previous icon-arrow-previous" title="previous project"></a>
-{{/if}}
+<div class="card">
+	{{#if previous}}
+		<a js-previous-project href="#" class="project-details__previous icon-arrow-previous" title="previous project"></a>
+	{{/if}}
 
 
-<header class="card__header">
-	<h1 class="card__title">
-		{{#if model.active}}
-			<span class="badge badge--big badge--active project-details__badge"></span>
-		{{else}}
-			<span class="badge badge--big badge--inactive project-details__badge"></span>
-		{{/if}}
-		
-		{{projectDetailsTitle model.name}}
-	</h1>
+	<header class="card__header">
+		<h1 class="card__title">
+			{{#if model.active}}
+				<span class="badge badge--big badge--active project-details__badge"></span>
+			{{else}}
+				<span class="badge badge--big badge--inactive project-details__badge"></span>
+			{{/if}}
 
-	<a js-go-back href="#" class="project-details__close icon-x" title="close"></a>
-</header>
+			{{projectDetailsTitle model.name}}
+		</h1>
+
+		<a js-go-back href="#" class="project-details__close icon-x" title="close"></a>
+	</header>
 
 
-<div class="project-details__info edit-hide">
-	<section class="project-details__description">
-		<h2 js-collapsible class="collapsible-toggle"><i class="icon-collapsible-toggle"></i>Project Details</h2>
-		<div class="collapsible-content">
-			<div class="collapsible-content__wrapper">
-				{{model.description}}
-				<button js-project-edit type="submit" class="edit-hide btn btn--primary project-details__edit">Edit</button>
-			</div>
+	<div class="project-details__info edit-hide">
+		<div class="project-details__arrows--mobile">
+			{{#if previous}}
+				<a js-previous-project href="#" class="project-details__previous--small icon-arrow-previous" title="previous project"></a>
+			{{/if}}
+
+			{{#if next}}
+				<a js-next-project href="#" class="project-details__next--small icon-arrow-next" title="next project"></a>
+			{{/if}}
 		</div>
 
-		<span class="project-details__date">
-			{{formatDate model.start_date 'DD/MM/YYYY'}}&nbsp;&nbsp;to&nbsp;&nbsp;{{formatDate model.end_date 'DD/MM/YYYY'}}
-		</span>
-	</section>
 
-	<section class="project-details__owner">
-		<h2 js-collapsible class="collapsible-toggle"><i class="icon-collapsible-toggle"></i>Project Owner</h2>
-		<div class="collapsible-content">
-			<div class="collapsible-content__wrapper">
-				{{{ownerImage model.owner.image}}}
-				<span class="owner-name">{{model.owner.name}}</span>
+		<section class="project-details__description">
+			<h2 js-collapsible class="collapsible-toggle"><i class="icon-collapsible-toggle"></i>Project Details</h2>
 
-				<div class="project-details__steps-progress">
-					<div class="progress">
-						<span class="progress__bar" style="width: {{showProgress model.total_steps model.current_step}}"></span>
-					</div>
-					<span class="progress__numbers">
-						<span class="{{hasProjectStarted model.total_steps model.current_step}}">{{model.current_step}}</span> / {{model.total_steps}}
-					</span>
+			<span class="project-details__date">
+				{{formatDate model.start_date 'DD/MM/YYYY'}}&nbsp;&nbsp;to&nbsp;&nbsp;{{formatDate model.end_date 'DD/MM/YYYY'}}
+			</span>
+
+			<div class="collapsible-content">
+				<div class="collapsible-content__wrapper">
+					{{model.description}}
+					<button js-project-edit type="submit" class="edit-hide btn btn--primary project-details__edit">Edit</button>
 				</div>
 			</div>
+		</section>
+
+		<section class="project-details__owner">
+			<h2 js-collapsible class="collapsible-toggle"><i class="icon-collapsible-toggle"></i>Project Owner</h2>
+			<div class="collapsible-content">
+				<div class="collapsible-content__wrapper">
+					{{{ownerImage model.owner.image}}}
+					<span class="owner-name">{{model.owner.name}}</span>
+
+					<div class="project-details__steps-progress">
+						<div class="progress">
+							<span class="progress__bar" style="width: {{showProgress model.total_steps model.current_step}}"></span>
+						</div>
+						<span class="progress__numbers">
+							<span class="{{hasProjectStarted model.total_steps model.current_step}}">{{model.current_step}}</span> / {{model.total_steps}}
+						</span>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+
+	<form name="project_form" class="project-details__form edit-show">
+
+		<div class="label-group">
+			<label class="label-block">
+				Name:
+				<input type="text" name="name" class="input-block" required="true" value="{{model.name}}"/>
+			</label>
 		</div>
-	</section>
+
+		<div class="label-group">
+			<label class="label-block label-block--fullwidth">
+				Description:
+				<textarea name="description" class="input-block" rows="5" required="true">{{model.description}}</textarea>
+			</label>
+		</div>
+
+		<div class="label-group">
+			<label class="label-block">
+				Owner name:
+				<input type="text" name="owner_name" class="input-block" required="true" value="{{model.owner.name}}"/>
+			</label>
+
+			<label class="label-block">
+				Owner image:
+				<input type="text" name="owner_image" class="input-block" value="{{model.owner.image}}"/>
+			</label>
+		</div>
+
+		<div class="label-group">
+			<label class="label-block">
+				Start date:
+				<input type="text" name="start_date" js-datepicker-start data-value="{{model.start_date}}" class="input-block" value="{{model.start_date}}"/>
+			</label>
+
+			<label class="label-block">
+				End date:
+				<input type="text" name="end_date" js-datepicker-end data-value="{{model.end_date}}" class="input-block" value="{{model.end_date}}"/>
+			</label>
+		</div>
+
+		<div class="label-group">
+			<label class="label-block">
+				Total steps:
+				<input type="number" name="total_steps" class="input-block" min="1" value="{{model.total_steps}}"/>
+			</label>
+
+			<label class="label-block">
+				Current step:
+				<input type="number" name="current_step" class="input-block" min="1" value="{{model.current_step}}"/>
+			</label>
+		</div>
+
+		<div class="label-group">
+			<label class="label-block">
+				Is active?:
+				<input type="checkbox" name="active" class="input-block" {{isActive model.active}}/>
+			</label>
+		</div>
+
+		<button js-project-save type="submit" class="btn btn--primary">Save</button>
+		<button js-project-cancel class="btn btn--secondary">Cancel</button>
+	</form>
+
+
+	{{#if next}}
+		<a js-next-project href="#" class="project-details__next icon-arrow-next" title="next project"></a>
+	{{/if}}
 </div>
-
-
-<form name="project_form" class="project-details__form edit-show">
-
-	<div class="label-group">
-		<label class="label-block">
-			Name:
-			<input type="text" name="name" class="input-block" required="true" value="{{model.name}}"/>
-		</label>
-	</div>
-
-	<div class="label-group">
-		<label class="label-block label-block--fullwidth">
-			Description:
-			<textarea name="description" class="input-block" rows="5" required="true">{{model.description}}</textarea>
-		</label>
-	</div>
-
-	<div class="label-group">
-		<label class="label-block">
-			Owner name:
-			<input type="text" name="owner_name" class="input-block" required="true" value="{{model.owner.name}}"/>
-		</label>
-
-		<label class="label-block">
-			Owner image:
-			<input type="text" name="owner_image" class="input-block" value="{{model.owner.image}}"/>
-		</label>
-	</div>
-
-	<div class="label-group">
-		<label class="label-block">
-			Start date:
-			<input type="text" name="start_date" js-datepicker-start data-value="{{model.start_date}}" class="input-block" value="{{model.start_date}}"/>
-		</label>
-
-		<label class="label-block">
-			End date:
-			<input type="text" name="end_date" js-datepicker-end data-value="{{model.end_date}}" class="input-block" value="{{model.end_date}}"/>
-		</label>
-	</div>
-
-	<div class="label-group">
-		<label class="label-block">
-			Total steps:
-			<input type="number" name="total_steps" class="input-block" min="1" value="{{model.total_steps}}"/>
-		</label>
-
-		<label class="label-block">
-			Current step:
-			<input type="number" name="current_step" class="input-block" min="1" value="{{model.current_step}}"/>
-		</label>
-	</div>
-
-	<div class="label-group">
-		<label class="label-block">
-			Is active?:
-			<input type="checkbox" name="active" class="input-block" {{isActive model.active}}/>
-		</label>
-	</div>
-
-	<button js-project-save type="submit" class="btn btn--primary">Save</button>
-	<button js-project-cancel class="btn btn--secondary">Cancel</button>
-</form>
-
-
-{{#if next}}
-	<a js-next-project href="#" class="project-details__next icon-arrow-next" title="next project"></a>
-{{/if}}
-

@@ -13,7 +13,7 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
 
     id: 'project-details',
 
-    className: 'project-details card',
+    className: 'project-details',
 
     events: {
       "click a[js-go-back]":             "goBack",
@@ -96,7 +96,7 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
 
     collapseContent: function(e) {
       var header = $(e.currentTarget);
-      header.next().slideToggle();
+      header.siblings('.collapsible-content').slideToggle();
       header.find('i').toggleClass('icon-collapsible-toggle--collapsed');
     },
 

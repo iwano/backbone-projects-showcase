@@ -1,5 +1,9 @@
 .project-details {
-  padding: 25px;
+  padding: 0 70px;
+
+  .card {
+    padding: 25px;
+  }
 
   .edit-show {
     display: none;
@@ -15,11 +19,15 @@
     }
   }
 
-  &__info section {
-    border-bottom: 2px solid $card-border;
-    line-height: 23px;
-    padding-right: 24px;
+  &__info {
     position: relative;
+
+    section {
+      border-bottom: 2px solid $card-border;
+      line-height: 23px;
+      padding-right: 24px;
+      position: relative;
+    }
   }
 
   &__date {
@@ -56,6 +64,24 @@
     }
   }
 
+  &__previous--small, &__next--small {
+    background-size: 30px;
+    height: 30px;
+    margin-top: 10px;
+    width: 30px;
+    &:hover {
+      background-size: 30px;
+    }
+  }
+
+  &__previous--small {
+    float: left;
+  }
+
+  &__next--small {
+    float: right;
+  }
+
   &__previous {
     left: -70px;
   }
@@ -88,6 +114,7 @@
 
     &__numbers {
       bottom: 9px;
+      display: inline-block;
       font-size: 20px;
       margin-left: 5px;
       position: relative;
@@ -107,4 +134,11 @@
     font-size: 21px;
     margin: 30px 0;
   }
+}
+
+.project-details__arrows--mobile {
+  clear: both;
+  display: none;
+  margin-bottom: -15px;
+  overflow: hidden;
 }
