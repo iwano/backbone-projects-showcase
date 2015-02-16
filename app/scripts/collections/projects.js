@@ -14,32 +14,40 @@ ProjectsShowcase.Collections = ProjectsShowcase.Collections || {};
 
     localStorage: new Backbone.LocalStorage('projects'),
 
-    comparator: function(m1, m2) {
-      var value1, value2, res;
-
-      if (['name', 'owner', 'end_date', 'total_steps', 'active'].indexOf(this.orderBy) < 0) {
-        return m1.get('id');
-      } else if (this.orderBy === 'owner') {
-        value1 = m1.get('owner').name;
-        value2 = m2.get('owner').name;
-      } else {
-        value1 = m1.get(this.orderBy);
-        value2 = m2.get(this.orderBy);
+    comparator: function (m) {
+      if (this.orderBy === 'owner') {
+        return m.get(this.orderBy).name;
       }
+      return m.get(this.orderBy);
+    },
 
-      if (value1 < value2) {
-        res = -1;
-      } else if (value1 > value2) {
-        res = 1;
-      } else {
-        res = 0;
-      }
+    // taken from http://stackoverflow.com/questions/5013819/reverse-sort-order-with-backbone-js/14737932#14737932
+    sortBy: function (iterator, context) {
+      var obj       = this.models,
+          direction = this.order;
 
-      if (this.order === 'DESC') {
-        res = -res;
-      }
-      return res;
+      return _.pluck(_.map(obj, function (value, index, list) {
+        return {
+          value: value,
+          index: index,
+          criteria: iterator.call(context, value, index, list)
+        };
+      }).sort(function (left, right) {
+        // swap a and b for reverse sort
+        var a = direction === "ASC" ? left.criteria : right.criteria,
+          b = direction === "ASC" ? right.criteria : left.criteria;
 
+        if (a !== b) {
+          if (a > b || a === void 0) return 1;
+          if (a < b || b === void 0) return -1;
+        }
+        return left.index < right.index ? -1 : 1;
+      }), 'value');
+    },
+
+    setSortField: function (orderBy, order) {
+      this.orderBy = orderBy;
+      this.order = order;
     },
 
     model: ProjectsShowcase.Models.Project

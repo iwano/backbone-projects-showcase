@@ -29,8 +29,7 @@ ProjectsShowcase.Views = ProjectsShowcase.Views || {};
       this.filterBy           = options.filterBy;
       this.order              = options.order;
       this.orderBy            = options.orderBy;
-      this.collection.orderBy = this.orderBy;
-      this.collection.order   = this.order;
+      this.collection.setSortField(this.orderBy, this.order);
       this.collection.sort();
     },
 
